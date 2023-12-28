@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario Médico</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+
+    <h1>Cuestionario Médico</h1>
+
+    <form id="formularioCuestionario">
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" required><br>
+
+        <label for="nombre">Nombre del Paciente:</label>
+        <input type="text" id="nombre" required><br>
+
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNacimiento" required><br>
+
+        <label for="fechaConsulta">Fecha de la Consulta:</label>
+        <input type="date" id="fechaConsulta" required><br>
+
+        <label for="genero">Género del Paciente:</label>
+        <select id="genero" required>
+            <option value="Niña">Niña</option>
+            <option value="Niño">Niño</option>
+        </select><br>
+
+        <label for="peso">Peso en kg:</label>
+        <input type="number" id="peso" required><br>
+
+        <label for="talla">Talla en cm:</label>
+        <input type="number" id="talla" required><br>
+
+        <button type="button" onclick="verificarEdad()">Verificar Edad</button>
+
+        <!-- Nuevo div para mostrar la edad -->
+        <div id="edadContainer"></div>
+
+        <div id="circunferenciaCefalicaContainer">
+            <label for="circunferenciaCefalica" id="circunferenciaCefalicaLabel" style="display: none;">Circunferencia Cefálica en cm:</label>
+            <input type="number" id="circunferenciaCefalica" style="display: none;">
+            <button type="button" onclick="enviarRespuestas()">Enviar Respuestas</button>
+        </div>
+    </form>
+
+</body>
+</html>
